@@ -45,3 +45,19 @@ This executes the `query.sql` file in `duckdb`,
 in my laptop this took a bit more than 17 minutes on HDD,
 and 4m30s on SSD.
 Final parquet file is `subset.parquet`
+
+### Load into duckdb database
+
+```bash
+pixi run load
+```
+
+This took 20 minutes on SSD.
+May need to limit memory usage (change the `memory_limit` in `load.sql`),
+and uses quite a bit (100GB) of temp disk space.
+
+After data is loaded,
+you can explore data by opening it with the `duckdb` CLI:
+```
+pixi run duckdb metadata.db
+```
